@@ -1,9 +1,9 @@
 import { ragChat } from "@/lib/rag-chat";
 import { aiUseChatAdapter } from "@upstash/rag-chat/nextjs";
-import { NextResponse } from "next/server";
+import { type NextRequest, NextResponse} from 'next/server'
 
 
-export async function POST(req: NextResponse) {
+export async function POST(req: Request) {
     const {messages,sessionId} = await req.json();
 
     const lastMessage = messages[messages.length - 1].content;
